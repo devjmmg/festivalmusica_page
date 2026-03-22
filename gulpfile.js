@@ -99,4 +99,6 @@ export function dev () {
     
 }
 
-export default series (crop, js, css, imagenes, dev );
+export const build = series(crop, js, css, imagenes);
+
+export default series(crop, js, css, imagenes, dev );
