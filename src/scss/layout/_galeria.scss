@@ -56,7 +56,14 @@
     place-items: center;
     font-weight: 700;
     cursor: pointer;
+}
 
+.image {
+    transition: transform 300ms ease;
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
 }
 
 @keyframes fadeIn {

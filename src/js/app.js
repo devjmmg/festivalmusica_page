@@ -35,12 +35,13 @@ function crearGaleria () {
         //Crear imagen
         const img = document.createElement("PICTURE");
         
+        img.classList.add('image');
+
         img.innerHTML = `
-        <source srcset="build/img/gallery/thumb/${i}.avif" type="image/avif">
-        <source srcset="build/img/gallery/thumb/${i}.webp" type="image/webp">
-        <img loading="lazy" width="250" height="180" src="build/img/gallery/thumb/${i}.jpg" alt="imagen galeria">
+            <source srcset="build/img/gallery/thumb/${i}.avif" type="image/avif">
+            <source srcset="build/img/gallery/thumb/${i}.webp" type="image/webp">
+            <img loading="lazy" width="250" height="180" src="build/img/gallery/thumb/${i}.jpg" alt="imagen galeria">
         `;
-        
         
         //Even Handler
         img.onclick = function () {
