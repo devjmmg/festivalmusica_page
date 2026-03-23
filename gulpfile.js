@@ -90,6 +90,12 @@ function procesarImagenes(file, outputSubDir) {
     sharp(file).avif().toFile(outputFileAvif)
 }
 
+export function html(done) {
+    src("*.html") // o "src/**/*.html" si los tienes en src
+        .pipe(dest("dist"))
+    done();
+}
+
 export function dev () {
     
     watch("src/scss/**/*.scss", css)
@@ -99,6 +105,6 @@ export function dev () {
     
 }
 
-export const build = series(crop, js, css, imagenes);
+export const build = series(crop, js, css, imagenes, html);
 
-export default series(crop, js, css, imagenes, dev );
+export default series(crop, js, css, imagenes, html, dev);
