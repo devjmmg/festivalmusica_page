@@ -17,7 +17,7 @@ export function js ( done ) {
     
     src("src/js/app.js")
     .pipe(terser())
-    .pipe( dest("build/js") )
+    .pipe( dest("dist/js") )
     
     done();
 }
@@ -28,7 +28,7 @@ export function css ( done ) {
     .pipe( sass({
         outputStyle: "compressed"
     }).on("error",sass.logError) )
-    .pipe( dest("build/css", {sourcemaps: '.'}) )
+    .pipe( dest("dist/css", {sourcemaps: '.'}) )
     
     done();
 }
@@ -63,7 +63,7 @@ export async function crop(done) {
 
 export async function imagenes(done) {
     const srcDir = './src/img';
-    const buildDir = './build/img';
+    const buildDir = './dist/img';
     const images =  await glob('./src/img/**/*{jpg,png}')
     
     images.forEach(file => {
