@@ -38,9 +38,9 @@ function crearGaleria () {
         img.classList.add('image');
 
         img.innerHTML = `
-            <source srcset="dist/img/gallery/thumb/${i}.avif" type="image/avif">
-            <source srcset="dist/img/gallery/thumb/${i}.webp" type="image/webp">
-            <img loading="lazy" width="250" height="180" src="dist/img/gallery/thumb/${i}.jpg" alt="imagen galeria">
+            <source srcset="img/gallery/thumb/${i}.avif" type="image/avif">
+            <source srcset="img/gallery/thumb/${i}.webp" type="image/webp">
+            <img loading="lazy" width="250" height="180" src="img/gallery/thumb/${i}.jpg" alt="imagen galeria">
         `;
         
         //Even Handler
@@ -61,9 +61,9 @@ function mostrarImagen (i) {
     const img = document.createElement("PICTURE");
     
     img.innerHTML = `
-    <source srcset="dist/img/gallery/full/${i}.avif" type="image/avif">
-    <source srcset="dist/img/gallery/full/${i}.webp" type="image/webp">
-    <img loading="lazy" width="250" height="180" src="dist/img/gallery/full/${i}.jpg" alt="imagen galeria">
+    <source srcset="img/gallery/full/${i}.avif" type="image/avif">
+    <source srcset="img/gallery/full/${i}.webp" type="image/webp">
+    <img loading="lazy" width="250" height="180" src="img/gallery/full/${i}.jpg" alt="imagen galeria">
     `;
     
     //Generar Modal
