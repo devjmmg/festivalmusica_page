@@ -17,7 +17,7 @@ export function js ( done ) {
     
     src("src/js/app.js")
     .pipe(terser())
-    .pipe( dest("dist/js") )
+    .pipe( dest("js") )
     
     done();
 }
@@ -28,7 +28,7 @@ export function css ( done ) {
     .pipe( sass({
         outputStyle: "compressed"
     }).on("error",sass.logError) )
-    .pipe( dest("dist/css", {sourcemaps: '.'}) )
+    .pipe( dest("css", {sourcemaps: '.'}) )
     
     done();
 }
@@ -63,7 +63,7 @@ export async function crop(done) {
 
 export async function imagenes(done) {
     const srcDir = './src/img';
-    const buildDir = './dist/img';
+    const buildDir = 'img';
     const images =  await glob('./src/img/**/*{jpg,png}')
     
     images.forEach(file => {
@@ -90,18 +90,10 @@ function procesarImagenes(file, outputSubDir) {
     sharp(file).avif().toFile(outputFileAvif)
 }
 
-export function html(done) {
-    src("*.html") // o "src/**/*.html" si los tienes en src
-        .pipe(dest("dist"))
-    done();
-}
-
 export function dev () {
     watch("src/scss/**/*.scss", css)
     watch("src/js/**/*.js", js)
     watch("src/img/**/*.{png,jpg}", imagenes)
 }
 
-export const build = series(crop, js, css, imagenes, html);
-
-export default series(crop, js, css, imagenes, html, dev);
+export default series(crop, js, css, imagenes, dev);
